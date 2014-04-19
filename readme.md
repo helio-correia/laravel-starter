@@ -4,9 +4,12 @@ This is a new laravel project that brings you some packages and setups to helps 
 
 ### What is included
 
-- Way/generators
-- Delete some junky files
+- Way/generators with some small personal modifications
+- fzaninotto/faker
+- Delete some unnecessary files
 - Acme with psr-4 autoload
+- Basic Authentication
+- Basic backoffice ( in progress )
 
 ### Getting starter
 
@@ -24,6 +27,7 @@ This is a new laravel project that brings you some packages and setups to helps 
 	
 ````
 
+2. To access the backoffice use Username admin and password admin
 
 ### Server Configs
 

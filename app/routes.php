@@ -11,7 +11,11 @@
 |
 */
 
-Route::get('/', function()
-{
-	return getenv('DB_PASSWORD');
-});
+Route::get('/', ['as' => 'home', 'uses' => 'PagesController@home']);
+Route::get('admin', ['as' => 'admin', 'uses' => 'SessionsController@index'])->before('auth');
+Route::get('login', ['as' => 'login', 'uses' => 'SessionsController@create']);
+Route::get('logout', 'SessionsController@destroy');
+Route::resource('sessions','SessionsController', ['only' => ['create','store', 'show', 'destroy']]);
+
+Route::resource('users', 'UsersController');
+
