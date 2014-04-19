@@ -19,6 +19,14 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $hidden = array('password');
 
+
+
+
+
+
+
+
+
 	/**
 	 * Get the unique identifier for the user.
 	 *
@@ -44,10 +52,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @return string
 	 */
-	public function getRememberToken()
-	{
-		return $this->remember_token;
-	}
+    public function getRememberToken()
+    {
+        return $this->remember_token;
+    }
+
 
 	/**
 	 * Set the token value for the "remember me" session.
@@ -55,10 +64,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 * @param  string  $value
 	 * @return void
 	 */
-	public function setRememberToken($value)
-	{
-		$this->remember_token = $value;
-	}
+    public function setRememberToken($value)
+    {
+        $this->remember_token = $value;
+    }
+
 
 	/**
 	 * Get the column name for the "remember me" token.

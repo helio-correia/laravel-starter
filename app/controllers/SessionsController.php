@@ -9,7 +9,8 @@ class SessionsController extends BaseController {
      */
     public function index()
     {
-        $user = User::find(1);//Auth::getUser()->username->first();
+        //$user = User::find(1);
+        //Auth::getUser()->username->first();
 
 
 
@@ -69,7 +70,7 @@ class SessionsController extends BaseController {
     {
         Auth::logout();
 
-        return Redirect::home();
+        return Redirect::to('/');
     }
 
 }
