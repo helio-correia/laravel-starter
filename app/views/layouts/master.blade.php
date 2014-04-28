@@ -9,7 +9,7 @@
 
      <title>
      @section('title')
-     &#150; LVS
+     &#58;&#58;   LVS
      @show
     </title>
 
