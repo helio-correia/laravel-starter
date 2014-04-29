@@ -5,7 +5,15 @@
    ========================================================================== */
 
 
+.mb10 {
+    margin-bottom: 10px;
+}
 
+.error {
+    color: red;
+    font-style: italic;
+    font-size: 1.2em;
+}
 
 
 

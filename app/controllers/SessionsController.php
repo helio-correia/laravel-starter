@@ -1,6 +1,17 @@
 <?php
 
-class SessionsController extends BaseController {
+use Acme\Validation\Login;
+use Acme\Validation\FormValidationException;
+
+
+class SessionsController extends \BaseController {
+
+    protected $loginForm;
+
+    function __construct(Login $loginForm)
+    {
+        $this->loginForm = $loginForm;
+    }
 
     /**
      * Display a listing of the resource.
@@ -25,9 +36,12 @@ class SessionsController extends BaseController {
     public function create()
     {
         if (Auth::check())
-            return Redirect::admin();
+            return Redirect::route('admin');
         else
+        {
             return View::make('sessions.create');
+
+        }
 
     }
 
@@ -40,12 +54,23 @@ class SessionsController extends BaseController {
     {
         $input = Input::only('username', 'password');
 
-        $attempt = Auth::attempt($input);
+        try
+        {
+            $this->loginForm->validate($input);
 
-        if ($attempt)
-            return Redirect::intended('/admin');
-        else
-            return Redirect::back()->withInput();
+            $attempt = Auth::attempt($input);
+
+            if ($attempt)
+                return Redirect::intended('/admin');
+            else
+            {
+                return Redirect::back()->withInput()->withErrors(['mess' => 'Wrong E-mail address or Password']);;
+            }
+        }
+        catch(FormValidationException $e)
+        {
+            return Redirect::back()->withInput()->withErrors($e->getErrors());
+        }
 
     }
 
@@ -70,7 +95,7 @@ class SessionsController extends BaseController {
     {
         Auth::logout();
 
-        return Redirect::to('/');
+        return Redirect::home();
     }
 
 }

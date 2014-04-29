@@ -8,7 +8,7 @@ This is a new laravel project that brings you some packages and setups to helps 
 - fzaninotto/faker
 - Delete some unnecessary files
 - Acme with psr-4 autoload
-- Basic Authentication
+- Authentication (in progress)
 - Basic backoffice ( in progress )
 
 ### Getting starter
